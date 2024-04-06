@@ -1,8 +1,8 @@
 version: '3'
 services:
-  follow_your_name_images:
-	  image: naemyouimages
-    container_name: you container name
+  tevy:
+	  image: testing_with_docker-tevy:latest
+    container_name: tevy
     build:
       context: .
       dockerfile: Dockerfile
@@ -13,8 +13,8 @@ services:
       - NODE_ENV=production
       - GENERATE_SOURCEMAP=false
     networks:
-			- devops or data_analytics follow you network
+			- devops 
 networks:
-  data_analytics: devops or data_analytics follow you network
+  data_analytics: devops 
     external: true	   
  	
