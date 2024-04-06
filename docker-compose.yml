@@ -1,0 +1,20 @@
+version: '3'
+services:
+  follow_your_name_images:
+	  image: naemyouimages
+    container_name: you container name
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 3306:3000
+    environment:
+      - NODE_ENV=production
+      - GENERATE_SOURCEMAP=false
+    networks:
+			- devops or data_analytics follow you network
+networks:
+  data_analytics: devops or data_analytics follow you network
+    external: true	   
+ 	
