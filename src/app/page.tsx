@@ -3,10 +3,10 @@ import { Suspense } from "react";
 import LoadingComponent from "./loading";
 import CatecoriesComponent from "@/components/cards/CatecoriesComponent";
 import ProductComponent from "@/components/cards/CardComponent";
-import { ProductType } from "@/types/products";
 import Link from "next/link";
 import { UserType } from "@/types/UserTpye";
 import { Metadata } from "next";
+import { ProductType } from "@/types/product";
 
 export const metadata: Metadata = {
   title: "Products",
