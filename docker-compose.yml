@@ -1,9 +1,10 @@
+version: '3'
 services:
-    tevy:
-        #image: it for name your image after docker build -t nameyourimages .
-        build:
-            context: .
-            dockerfile: Dockerfile
-        restart: always
-        ports:
-            - 3246:3000
+  tevy:
+    #image: it for name your image after docker build -t nameyourimages .
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 3245:3000
