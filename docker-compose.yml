@@ -1,20 +1,9 @@
-version: '3'
 services:
-  tevy:
-	  image: testing_with_docker-tevy:latest
-    container_name: tevy
-    build:
-      context: .
-      dockerfile: Dockerfile
-    restart: always
-    ports:
-      - 3246:3000
-    environment:
-      - NODE_ENV=production
-      - GENERATE_SOURCEMAP=false
-    networks:
-			- devops 
-networks:
-  data_analytics: devops 
-    external: true	   
- 	
+    tevy:
+        #image: it for name your image after docker build -t nameyourimages .
+        build:
+            context: .
+            dockerfile: Dockerfile
+        restart: always
+        ports:
+            - 3246:3000
