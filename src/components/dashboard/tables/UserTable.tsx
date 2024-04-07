@@ -164,7 +164,7 @@ const UserTable = () => {
                 <p>
                   {userDetail.name}
                 </p>
-                <Image src={userDetail.image} width={100} height={100} alt="product" />
+                <img src={userDetail.image} width={100} height={100} alt="product" />
               
               </ModalBody>
             </>

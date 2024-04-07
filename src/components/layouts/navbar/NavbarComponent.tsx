@@ -39,11 +39,6 @@ export default function NavbarComponent() {
           <NavbarItem className="hidden lg:flex">
             <Link href="/dashboard">Dashboard</Link>
           </NavbarItem>
-          <NavbarItem>
-            <Button as={Link} className="text-white bg-orange-500" href="/Login" variant="flat">
-              Login
-            </Button>
-          </NavbarItem>
         </NavbarContent>
     </Navbar>
   );
