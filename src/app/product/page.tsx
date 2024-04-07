@@ -29,8 +29,9 @@ export default async function HomeProduct() {
             <div>
             <h1 className="font-bold text-2xl text-orange-600 ml-8 mt-10">Our Product</h1>
               <div className=" text-center grid lg:grid-cols-4 md:grid-cols-3 justify-center gap-5 p-8">
-                {products?.map((product: ProductType) => (
-                  <Link href={`${product.id}`} key={product.id}>
+                {products?.map((product: ProductType) => { 
+                  return (
+                  <Link href={`/product/${product.id}`} key={product.id}>
                   <ProductComponent
                     name={product.name}
                     image={product.image}
@@ -38,7 +39,7 @@ export default async function HomeProduct() {
                     price={product.price}
                   />
                   </Link>
-                ))}
+                )})}
               </div>
               </div>
         </Suspense>

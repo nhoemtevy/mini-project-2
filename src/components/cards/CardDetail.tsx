@@ -2,7 +2,7 @@
 import { ProductType } from "@/types/product";
 import React from "react";
 
-export default function DetailCardComponent({
+ function DetailCardComponent({
   name,
   image,
   price,
@@ -46,3 +46,4 @@ export default function DetailCardComponent({
     </>
   );
 }
+export default DetailCardComponent
