@@ -25,13 +25,12 @@ type DataRow = {
 const customStyles = {
   rows: {
     style: {
-      // minWidth: "1000px",
-      minHeight: "72px", // override the row height
+      minHeight: "72px", 
     },
   },
   headCells: {
     style: {
-      paddingLeft: "8px", // override the cell padding for head cells
+      paddingLeft: "8px", 
       paddingRight: "8px",
     },
   },
@@ -67,19 +66,24 @@ const UserTable = () => {
       sortable: true,
     },
     {
-      name: "Username",
-      selector: (row) => row.username,
+      name: "Seller",
+      selector: (row) => row.seller,
       sortable: true,
     },
     {
-      name: "Email",
-      selector: (row) => row.email,
+      name: "Name",
+      selector: (row) => row.name,
+      sortable: true,
+    },
+    {
+      name: "Category",
+      selector: (row) => row.category,
       sortable: true,
     },
     {
       name: "Image",
       selector: (row): any => (
-        <img src={row.image} width={70} height={70} alt="user" />
+        <img src={row.image} width={70} height={70} alt="pic" />
       ),
     },
     {
@@ -121,8 +125,8 @@ const UserTable = () => {
     async function fetchData() {
       const data = await fetch(url_based);
       const response = await data.json();
-      setUser(response.users);
-      setFilter(response.users);
+      setUser(response.results);
+      setFilter(response.results);
     }
     fetchData();
     setIsLoading(false);
@@ -134,16 +138,16 @@ const UserTable = () => {
       return;
     }
     const result = getUser.filter((item: UserType) => {
-      return item.username?.toLowerCase().includes(search.toLowerCase());
+      return item.name?.toLowerCase().includes(search.toLowerCase());
     });
     setFilter(result);
   }, [getUser, search]);
 
   const paginationComponentOptions = {
-    rowsPerPageText: "ជួរដេកក្នុងមួយទំព័រ",
-    rangeSeparatorText: "នៃ",
+    rowsPerPageText: "Row of per page",
+    rangeSeparatorText: "Of",
     selectAllRowsItem: true,
-    selectAllRowsItemText: "ទាំងអស់",
+    selectAllRowsItemText: "All",
   };
 
   return (
@@ -155,10 +159,10 @@ const UserTable = () => {
               <ModalHeader className="flex flex-col gap-1">Modal Title</ModalHeader>
               <ModalBody>
                 <p> 
-                  {userDetail.username}
+                  {userDetail.seller}
                 </p>
                 <p>
-                  {userDetail.email}
+                  {userDetail.name}
                 </p>
                 <Image src={userDetail.image} width={100} height={100} alt="product" />
               
@@ -177,7 +181,6 @@ const UserTable = () => {
         selectableRows
         pagination
         subHeader
-        // customStyles={customStyles}
         subHeaderComponent={
           <input
             className="border-[1px] px-4 py-2 w-full rounded-md border-blue-400"

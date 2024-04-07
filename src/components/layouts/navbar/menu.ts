@@ -10,5 +10,9 @@ export const navbarItemLink = [
     {
         title : "Product",
         path : "/product"
+    },
+    {
+        title : "Policy",
+        path : "/policy"
     }
 ]

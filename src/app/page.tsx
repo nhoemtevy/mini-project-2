@@ -7,6 +7,7 @@ import Link from "next/link";
 import { UserType } from "@/types/UserTpye";
 import { Metadata } from "next";
 import { ProductType } from "@/types/product";
+import CarouselComponent from "@/components/cards/CarouselComponent";
 
 export const metadata: Metadata = {
   title: "Products",
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 async function fetchProducts() {
-  const products = await fetch("https://store.istad.co/api/products/", {
+  const products = await fetch("https://store.istad.co/api/products/?page=4", {
     cache: "no-store"
   });
   const res = await products.json()
@@ -29,10 +30,11 @@ export default async function Home() {
     <>
       <div>
         <Suspense fallback={<LoadingComponent/>} >
+          <CarouselComponent/>
           <CatecoriesComponent/>
           <div>
           <h1 className="font-bold text-2xl text-orange-600 ml-8">Our Product</h1>
-            <div className="mt-10 text-center grid grid-cols-4 justify-center gap-5 p-8">
+            <div className="mt-10 text-center grid lg:grid-cols-4 md:grid-cols-3 justify-center gap-5 p-8">
               {products?.map((product: ProductType) => (
                 <Link href={`${product.id}`} key={product.id}>
                 <ProductComponent

@@ -1,6 +1,6 @@
 
+import { ProductType } from "@/types/product";
 import React from "react";
-import { ProductType } from "@/types/products";
 
 export default function ProductComponent({
 	image,

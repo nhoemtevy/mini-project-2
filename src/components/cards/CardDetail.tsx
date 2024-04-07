@@ -1,5 +1,5 @@
 
-import { ProductType } from "@/types/products";
+import { ProductType } from "@/types/product";
 import React from "react";
 
 export default function DetailCardComponent({

@@ -1,6 +1,7 @@
 export type UserType = {
-    id?: number,
-    username?: string,
-    email?: string
-    image?: string,
+    id?: number ;
+    seller?: string;
+    category?: string;
+    name?: string;
+    image: string;
 }

@@ -1,17 +1,22 @@
 
+import LoadingComponent from "@/app/loading";
 import DetailCardComponent from "@/components/cards/CardDetail";
-import getProductId from "@/data/getById/GetProductId";
-import React from "react";
-export type Params = {
+import React, { Suspense } from "react";
+export type ParamProps = {
   params: {
-    id: string | number;
+    id: number;
   };
 };
+
+async function getDetail(id: number) {
+  const productDetail = await fetch(`https://store.istad.co/api/products/${id}`);
+  return productDetail.json();
+}
 export async function generateMetadata({ params }: any) {
   const id = params.id;
-  const product = await getProductId(id);
+  const product = await getDetail(id);
   return {
-    title: product?.name,
+    name: product?.name,
     describe: product.desc,
     openGraph: {
       images: product.image,
@@ -19,15 +24,17 @@ export async function generateMetadata({ params }: any) {
   };
 }
 
-export default async function page({ params }: Params) {
+export default async function page({ params }: ParamProps) {
   const id = params.id;
-  const res = await getProductId(id);
+  const res = await getDetail(id);
   return (
+    <Suspense fallback={<LoadingComponent/>} >
     <DetailCardComponent
       desc={res.desc}
       image={res.image}
       price={res.price}
       name={res.name}
     />
+    </Suspense>
   );
 }

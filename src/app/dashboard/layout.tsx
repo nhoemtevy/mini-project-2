@@ -1,5 +1,5 @@
 import DashboardSidebar from "@/components/dashboard/DashboardSidebar";
-import UserTable from "../tables/UserTable";
+import UserTable from "../../components/dashboard/tables/UserTable";
 import { Navbar } from "flowbite-react";
 
 export default function RootLayout({
